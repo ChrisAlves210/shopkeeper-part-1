@@ -9,6 +9,7 @@ export function render(state) {
 function renderStatus(state) {
   const status = document.getElementById("status");
   status.innerHTML = `
+    <h2>Status</h2>
     <p><strong>Day:</strong> ${state.day}</p>
     <p><strong>Cash:</strong> $${(state.cashCents / 100).toFixed(2)}</p>
   `;

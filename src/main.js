@@ -32,4 +32,9 @@ document.getElementById("price-bagel").addEventListener("change", e => {
     item: "bagel",
     price: Number(e.target.value)
   });
+
+});
+
+document.getElementById("open-shop").addEventListener("click", () => {
+  dispatch({ type: "OPEN_SHOP" });
 });

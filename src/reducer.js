@@ -1,9 +1,14 @@
 // This file updates state based on actions.
+import { simulateDay } from "./economy.js";
 
 export function update(state, action) {
-  // Make a copy so we don’t change the original
   const newState = structuredClone(state);
 
+  if (action.type === "OPEN_SHOP") {
+    simulateDay(newState);
+    newState.day += 1;
+    newState.log.push("You opened the shop.");
+  }
   if (action.type === "NEXT_DAY") {
     newState.day += 1;
     newState.log.push("A new day begins.");
