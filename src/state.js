@@ -17,6 +17,10 @@ export default function makeInitialState() {
       bagel: 250,
     },
 
+    promoDaysLeft: 0,
+
+    orderedToday: false,
+
     lastReport: null,
     log: ['Welcome to your new shop!'],
   };

@@ -1,6 +1,6 @@
-import makeInitialState from './state';
-import render from './render';
-import update from './reducer';
+import makeInitialState from './state.js';
+import render from './render.js';
+import update from './reducer.js';
 
 let state = makeInitialState();
 render(state);
@@ -18,22 +18,30 @@ document.getElementById('clean').addEventListener('click', () => {
   dispatch({ type: 'CLEAN' });
 });
 
-document.getElementById('price-coffee').addEventListener('change', (e) => {
-  dispatch({
-    type: 'SET_PRICE',
-    item: 'coffee',
-    price: Number(e.target.value),
-  });
-});
+const inventoryEl = document.getElementById('inventory');
 
-document.getElementById('price-bagel').addEventListener('change', (e) => {
-  dispatch({
-    type: 'SET_PRICE',
-    item: 'bagel',
-    price: Number(e.target.value),
-  });
+inventoryEl.addEventListener('change', (e) => {
+  if (e.target.id === 'price-coffee') {
+    dispatch({
+      type: 'SET_PRICE',
+      item: 'coffee',
+      price: Number(e.target.value),
+    });
+  }
+
+  if (e.target.id === 'price-bagel') {
+    dispatch({
+      type: 'SET_PRICE',
+      item: 'bagel',
+      price: Number(e.target.value),
+    });
+  }
 });
 
 document.getElementById('open-shop').addEventListener('click', () => {
   dispatch({ type: 'OPEN_SHOP' });
+});
+
+document.getElementById('promo').addEventListener('click', () => {
+  dispatch({ type: 'PROMO' });
 });
